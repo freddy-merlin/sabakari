@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S.A. Bakari — Ministre des Affaires Étrangères</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #1A365D;
+      --navy-dark: #06162D;
+      --gold:      #C9962E;
+      --gold-alt:  #D4AF37;
+      --cream:     #F5F3E7;
+      --white:     #FFFFFF;
+      --gray:      #6B7280;
+      --light-bg:  #F4F7F9;
+
+      /* Fluid spacing */
+      --section-px: clamp(1rem, 5vw, 7.5rem);
+      --card-radius: clamp(16px, 2vw, 30px);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      color: var(--navy);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ═══════════════════════════════════
+       HERO CARD
+    ═══════════════════════════════════ */
+    .hero-card {
+      margin: clamp(12px, 2.5vw, 35px) clamp(12px, 3.6vw, 52px) 0;
+      border-radius: clamp(16px, 2vw, 26px);
+      background: linear-gradient(67.67deg, #1A365D 48.98%, #06162D 106.63%);
+      position: relative;
+      overflow: visible;
+      min-height: clamp(480px, 70vh, 881px);
+    }
+
+    .hero-card-clip {
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    /* Remplacer l'ancienne règle .hero-bg-photo par : */
+.hero-bg-photo {
+  position: absolute; inset: 0;        /* couvre tout le hero */
+  width: 100%; height: 100%;
+  background-image: url('https://cadrecomedia.s3.eu-central-1.amazonaws.com/articles/2025/10/1802/1825/1752103887998.jpg');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;              /* plein écran */
+  -webkit-mask-image: none;            /* retire l'ancien masque */
+  mask-image: none;
+}
+
+/* Overlay sombre par-dessus l'image */
+.hero-bg-photo::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(6, 22, 45, 5) 10%,         /* gauche très sombre (lisibilité du texte) */
+    rgba(6, 22, 45, 0.7) 60%,        /* centre mi-transparent */
+    rgba(6, 22, 45, 0.25) 100%        /* droite léger voile */
+  );
+}
+
+    .hero-rings {
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1336' height='881' viewBox='0 0 1336 881'%3E%3Cellipse cx='1050' cy='440' rx='370' ry='320' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='1'/%3E%3Cellipse cx='1050' cy='440' rx='290' ry='250' fill='none' stroke='rgba(255,255,255,0.055)' stroke-width='1'/%3E%3Cellipse cx='1050' cy='440' rx='210' ry='180' fill='none' stroke='rgba(255,255,255,0.04)' stroke-width='1'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .hero-inner {
+      position: relative; z-index: 10;
+      height: 100%;
+      padding: 0 clamp(1rem, 5vw, 4.5rem);
+      display: flex; flex-direction: column;
+    }
+
+    /* ─── NAVBAR ─── */
+
+
+        .navbar-sticky {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 clamp(12px, 3.6vw, 52px);
+      transition: background 0.35s, backdrop-filter 0.35s;
+      pointer-events: none;
+    }
+    .navbar-sticky.scrolled {
+      background: rgba(26, 54, 93, 0.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+
+    .navbar {
+      width: 100%; max-width: 1165px;
+      margin: 0 auto;
+      padding-top: clamp(16px, 2.5vw, 28px);
+      flex-shrink: 0;
+       pointer-events: all;
+    }
+
+    .navbar-inner {
+      width: 100%; height: 64px;
+      background: #fff;
+      border-radius: 999px;
+      box-shadow: 0 0 36px rgba(0,0,0,.05);
+      padding: 0 clamp(16px, 3vw, 30px);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      font-weight: 700; font-size: clamp(15px, 2vw, 18px);
+      letter-spacing: .03em; color: var(--navy);
+      text-decoration: none; white-space: nowrap;
+    }
+    .nav-logo span { color: var(--gold-alt); }
+
+    .nav-links {
+      display: flex; align-items: center;
+      gap: clamp(16px, 2.5vw, 36px); list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--navy);
+      text-decoration: none; transition: color .2s; white-space: nowrap;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold-alt); }
+
+    .nav-cta {
+      background: var(--gold-alt); color: var(--navy);
+      font-size: 12px; font-weight: 700; letter-spacing: .04em;
+      padding: 9px 20px; border-radius: 999px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+      white-space: nowrap; transition: background .2s;
+      box-shadow: 0 2px 12px rgba(201,150,46,.3);
+      flex-shrink: 0;
+    }
+    .nav-cta:hover { background: var(--gold); color: #fff; }
+
+    .burger {
+      display: none; background: none; border: none; cursor: pointer;
+      color: var(--navy); flex-shrink: 0;
+    }
+
+    /* Mobile nav overlay */
+    #mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 200;
+      background: var(--navy); flex-direction: column;
+      align-items: center; justify-content: center; gap: 32px;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      font-size: 22px; font-weight: 600; color: #fff;
+      text-decoration: none; letter-spacing: .02em;
+      transition: color .2s;
+    }
+    #mobile-menu a:hover { color: var(--gold-alt); }
+    #mobile-menu .close-btn {
+      position: absolute; top: 24px; right: 24px;
+      background: none; border: none; cursor: pointer; color: #fff;
+    }
+
+    /* ─── HERO CONTENT ─── */
+    .hero-content {
+      flex: 1; display: flex; align-items: center;
+      justify-content: space-between;
+      padding: clamp(32px, 5vw, 60px) 0 clamp(24px, 4vw, 48px);
+      gap: 32px;
+    }
+
+    .hero-text {
+      max-width: 620px;
+      margin-left: clamp(0px, 3vw, 4rem);
+      position: relative; z-index: 2;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 6vw, 74px);
+      font-weight: 800; color: #fff;
+      line-height: 1.08; margin-bottom: 20px;
+    }
+    .hero-title .script-line {
+      font-family: 'Great Vibes', cursive;
+      color: var(--gold-alt);
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 1.05;
+    }
+
+    .hero-subtitle {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    }
+    .hero-subtitle .bar {
+      width: 4px; height: 3em; background: var(--gold-alt);
+      border-radius: 2px; flex-shrink: 0;
+    }
+    .hero-subtitle span {
+      color: #fff; font-size: clamp(11px, 1.5vw, 16px);
+      font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    }
+
+    .hero-desc {
+      color: #fff; font-family: 'Poppins', sans-serif;
+      font-size: clamp(14px, 1.8vw, 18px); line-height: 1.7;
+      max-width: 420px; margin-bottom: 32px;
+    }
+
+    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--gold-alt); color: var(--navy);
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: 13px 24px; border-radius: 999px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      box-shadow: 0 4px 16px rgba(201,150,46,.35); transition: background .2s;
+    }
+    .btn-primary:hover { background: var(--gold); color: #fff; }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,.55); color: #fff;
+      font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: 13px 24px; border-radius: 999px;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+      transition: background .2s, border-color .2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.8); }
+
+    /* Hero photo */
+    .hero-photo-wrapper {
+      position: relative;
+      width: clamp(220px, 32vw, 459px);
+      height: clamp(300px, 45vw, 609px);
+      flex-shrink: 0; align-self: flex-start;
+    }
+    .photo-bg-card {
+      position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 63%;
+      border-radius: 30px;
+      background: linear-gradient(180deg, #1A365D 0%, #fff 100%);
+    }
+    .photo-img {
+      position: absolute; top: 0; left: 4%;
+      width: 94%; height: 100%;
+      object-fit: cover; object-position: top center;
+      border-radius: 0 0 20px 20px;
+    }
+
+    /* ═══════════════════════════════════
+       STATS BAR
+    ═══════════════════════════════════ */
+    .stats-wrapper {
+      position: relative; z-index: 20;
+      margin-top: clamp(-50px, -8vw, -92px);
+      padding: 0 clamp(12px, 3.6vw, 52px) clamp(40px, 5vw, 60px);
+    }
+
+    .stats-bar {
+      max-width: 1140px; margin: 0 auto;
+      background: #fff; border-radius: 20px;
+      box-shadow: 0 8px 48px rgba(0,0,0,.09);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+    }
+
+    .stat-item {
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: clamp(20px, 3vw, 40px) 16px;
+      border-right: 1px solid rgba(90,90,90,.09);
+    }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-size: clamp(28px, 4vw, 38px); font-weight: 700;
+      color: var(--gold-alt); line-height: 1; margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: clamp(10px, 1.2vw, 13px); font-weight: 500;
+      color: var(--navy); letter-spacing: .02em; text-align: center;
+    }
+
+    /* ═══════════════════════════════════
+       SECTION UTILITY CLASSES
+    ═══════════════════════════════════ */
+    .section { padding: clamp(56px, 8vw, 96px) 0; }
+    .section-inner {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 var(--section-px);
+    }
+    .section-tag {
+      font-size: 11px; font-weight: 800; color: var(--gold-alt);
+      letter-spacing: .15em; text-transform: uppercase; display: block;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(28px, 4.5vw, 47px); font-weight: 800;
+      color: var(--navy); line-height: 1.15; margin-bottom: 0;
+    }
+    .section-title .script {
+      font-family: 'Great Vibes', cursive; font-weight: 400;
+      font-size: clamp(36px, 5.5vw, 56px); color: var(--gold);
+    }
+    .section-center { text-align: center; margin-bottom: clamp(36px, 5vw, 56px); }
+
+    /* Hover lift */
+    .lift { transition: transform .2s ease, box-shadow .2s ease; }
+    .lift:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.09); }
+
+    /* ═══════════════════════════════════
+   BIOGRAPHIE
+═══════════════════════════════════ */
+#biographie { background: #fff; }
+
+.bio-flex {
+  display: flex;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: stretch; /* ← les deux colonnes font la même hauteur */
+  flex-wrap: wrap;
+}
+
+.bio-photo-col {
+  flex-shrink: 0;
+  position: relative;
+  width: clamp(260px, 38vw, 460px); /* ← photo plus large */
+}
+
+.bio-img-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  height: 100%; /* ← prend toute la hauteur de la colonne */
+  min-height: clamp(400px, 55vw, 620px); /* ← hauteur minimale plus grande */
+}
+.bio-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.bio-text-col .btn-primary {
+  align-self: flex-start; /* ← reste à sa taille naturelle */
+  display: inline-flex;
+}
+.bio-badge {
+  position: absolute;
+  top: 50%;
+  right: clamp(-50px, -6vw, -28px); /* ← décalé plus vers la gauche (moins à droite) */
+  transform: translateY(-50%);
+  width: clamp(110px, 12vw, 150px);
+  height: clamp(110px, 12vw, 150px);
+  border-radius: 50%;
+  border: clamp(6px, 1vw, 10px) solid #fff;
+  background: var(--navy-dark);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  z-index: 10;
+}
+.bio-badge-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 700; color: #fff; line-height: 1;
+}
+.bio-badge-label {
+  font-size: clamp(8px, 1vw, 10px); font-weight: 500;
+  color: rgba(255,255,255,.8); text-align: center;
+  line-height: 1.3; margin-top: 4px;
+}
+
+.bio-text-col {
+  flex: 1;
+  min-width: 0; /* ← c'est la clé : sans ça, flex ignore le width 100% des enfants */
+  padding-top: 16px;
+  padding-left: 40px; /* ← espace pour le badge qui déborde */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+    .bio-tag { font-size: 14px; font-weight: 600; color: var(--gold-alt); margin-bottom: 12px; }
+
+    .bio-title {
+      font-size: clamp(26px, 3.5vw, 40px); font-weight: 700;
+      color: var(--navy); line-height: 1.15; margin-bottom: 24px;
+    }
+    .bio-title em {
+      font-family: 'Great Vibes', cursive; font-style: normal;
+      font-size: clamp(34px, 4.5vw, 48px); font-weight: 400;
+    }
+.bio-p {
+  color: #5A5A5A;
+  line-height: 1.75;
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: clamp(15px, 1.6vw, 18px);
+  width: 100%;
+  max-width: 100%; /* ← s'assure qu'il ne dépasse pas */
+}
+
+ .quote-box {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+}
+
+.quote-icon {
+  flex-shrink: 0;
+  width: 87px;
+  height: 82px;
+  /* Cercle extérieur doré */
+  background: #D4AF3742;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Cercle intérieur bleu navy */
+.quote-icon::before {
+  content: '';
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: #06162D;
+  border-radius: 50%;
+}
+
+/* SVG passe au-dessus du cercle bleu */
+.quote-icon svg {
+  position: relative;
+  z-index: 1;
+}
+
+.quote-text {
+  font-size: clamp(13px, 1.5vw, 15px);
+  color: #5A5A5A;
+  line-height: 1.7;
+}
+
+    /* ═══════════════════════════════════
+       CADRE 4D
+    ═══════════════════════════════════ */
+    .cadre-section {
+      background: var(--cream); border-radius: var(--card-radius);
+      margin: clamp(20px, 2.5vw, 35px) clamp(12px, 3.6vw, 52px) 0;
+    }
+
+    .cadre-title {
+      font-size: clamp(28px, 4vw, 40px); font-weight: 700;
+      color: var(--navy); line-height: 1.2;
+    }
+    .cadre-title .script {
+      font-family: 'Great Vibes', cursive; font-weight: 400;
+      font-size: clamp(38px, 5vw, 52px); color: var(--gold);
+    }
+
+    .cadre-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: clamp(12px, 2vw, 20px);
+    }
+
+    .cadre-card {
+      background: #fff; border-radius: var(--card-radius);
+      padding: clamp(20px, 3vw, 32px);
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .cadre-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+
+    .cadre-card-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; margin-bottom: 20px;
+    }
+
+    .cadre-icon-box {
+      width: clamp(60px, 8vw, 96px); height: clamp(54px, 7vw, 86px);
+      border-radius: 24px; background: var(--navy);
+      box-shadow: 6px 6px 0 rgba(6,22,45,.2);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    .cadre-num {
+      font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--gold);
+    }
+
+    .cadre-card h3 {
+      font-size: clamp(15px, 1.8vw, 18px); font-weight: 700;
+      color: var(--navy); margin-bottom: 4px;
+    }
+    .cadre-card .sub {
+      font-size: 11px; font-weight: 600; color: var(--gold);
+      letter-spacing: .05em; margin-bottom: 10px;
+    }
+    .cadre-card p {
+      font-size: clamp(12px, 1.3vw, 13px); color: var(--gray); line-height: 1.65;
+    }
+
+    /* ═══════════════════════════════════
+       PARCOURS / TIMELINE
+    ═══════════════════════════════════ */
+    .parcours-section {
+      background: var(--light-bg); border-radius: var(--card-radius);
+      margin: clamp(20px, 2.5vw, 35px) clamp(12px, 3.6vw, 52px) 0;
+    }
+
+    /* ── Desktop timeline (centered) ── */
+    .timeline { position: relative; max-width: 860px; margin: 0 auto; }
+
+    .timeline-vline {
+      position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, transparent, var(--gold) 5%, var(--gold) 95%, transparent);
+      transform: translateX(-50%);
+    }
+
+    .tl-row {
+      display: flex; align-items: center; margin-bottom: 40px;
+    }
+    .tl-row:last-child { margin-bottom: 0; }
+
+    .tl-card {
+      width: calc(50% - 68px);
+      background: #fff; border-radius: 22px;
+      border-top: 5px solid var(--gold-alt);
+      box-shadow: 0 10px 40px rgba(0,0,0,.04);
+      padding: clamp(18px, 2.5vw, 28px);
+    }
+    .tl-card.right { margin-left: auto; }
+    .tl-card.left { text-align: right; }
+
+    .tl-card .org {
+      font-size: 10px; font-weight: 700; color: var(--gold);
+      letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .tl-card h3 {
+      font-size: clamp(14px, 1.7vw, 17px); font-weight: 700;
+      color: var(--navy); margin-bottom: 8px;
+    }
+    .tl-card p {
+      font-size: clamp(12px, 1.3vw, 13px); color: var(--gray); line-height: 1.65;
+    }
+
+    .tl-dot {
+      flex-shrink: 0; width: clamp(72px, 8vw, 100px); height: clamp(72px, 8vw, 100px);
+      border-radius: 50%; border: 3px solid var(--gold);
+      background: var(--navy);
+      box-shadow: 0 10px 28px rgba(26,54,147,.15);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index: 10; margin: 0 clamp(4px, 1vw, 10px);
+    }
+    .tl-dot span {
+      font-size: clamp(10px, 1.2vw, 13px); font-weight: 700;
+      color: #fff; text-align: center; line-height: 1.3;
+    }
+
+    .tl-spacer { width: calc(50% - 68px); }
+
+    /* ═══════════════════════════════════
+       EXPERTISE
+    ═══════════════════════════════════ */
+    .expertise-section {
+      background: var(--navy); border-radius: var(--card-radius);
+      margin: clamp(20px, 2.5vw, 35px) clamp(12px, 3.6vw, 52px) 0;
+    }
+
+    .exp-title { color: #fff; }
+    .exp-title .script { color: var(--gold-alt); }
+
+    .exp-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(12px, 1.5vw, 20px);
+    }
+
+    .exp-card {
+      background: #F8FAFC; border-radius: var(--card-radius);
+      border: 1px solid rgba(0,0,0,.12);
+      padding: clamp(20px, 2.5vw, 32px) clamp(18px, 2vw, 28px);
+      display: flex; flex-direction: column;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .exp-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.15); }
+
+    .exp-icon {
+      width: 40px; height: 40px;
+      background: rgba(26,54,93,.08); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .exp-card h3 {
+      font-size: clamp(16px, 2vw, 20px); font-weight: 800;
+      color: var(--navy); margin-bottom: 10px;
+    }
+    .exp-card p {
+      font-size: clamp(13px, 1.4vw, 15px); font-weight: 500;
+      color: var(--gray); line-height: 1.65; flex: 1;
+    }
+
+    /* ═══════════════════════════════════
+       PUBLICATIONS
+    ═══════════════════════════════════ */
+    #publications {
+      background: var(--cream);
+      padding: clamp(56px, 8vw, 100px) var(--section-px);
+      margin-top: clamp(40px, 5vw, 75px);
+    }
+
+    .pub-title { font-size: clamp(28px, 4.5vw, 47px); font-weight: 800; color: var(--navy); }
+    .pub-title .script {
+      font-family: 'Great Vibes', cursive; font-weight: 400;
+      font-size: clamp(28px, 4.5vw, 47px); color: var(--navy);
+    }
+
+    .pub-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(14px, 2vw, 24px);
+    }
+
+    .pub-card {
+      background: #fff; border-radius: var(--card-radius);
+      border: 1px solid rgba(0,0,0,.08);
+      padding: clamp(24px, 3vw, 40px);
+      display: flex; flex-direction: column;
+      justify-content: space-between;
+      min-height: clamp(180px, 20vw, 228px);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .pub-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+
+    .pub-date {
+      font-size: 12px; font-weight: 700; color: var(--gold-alt);
+      letter-spacing: .12em; text-transform: uppercase;
+    }
+    .pub-card h3 {
+      font-size: clamp(14px, 1.7vw, 18px); font-weight: 700;
+      color: var(--navy); line-height: 1.5;
+      flex: 1; padding: 12px 0;
+    }
+    .pub-card a {
+      font-size: 13px; font-weight: 600; color: var(--navy);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .pub-card a:hover { color: var(--gold); }
+
+    /* ═══════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════ */
+    footer {
+      background: var(--navy);
+      padding: clamp(48px, 7vw, 72px) 0 0;
+    }
+
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 var(--section-px) clamp(40px, 6vw, 64px);
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr 1px 1fr;
+      gap: 0; align-items: start;
+    }
+
+    .footer-divider {
+      background: rgba(255,255,255,.12); width: 1px; height: 280px;
+      align-self: center;
+    }
+
+    .footer-contact-item {
+      display: flex; align-items: flex-start; gap: 14px; margin-bottom: 28px;
+    }
+    .footer-contact-item:last-child { margin-bottom: 0; }
+
+    .footer-contact-label {
+      font-size: clamp(16px, 2vw, 22px); font-weight: 600;
+      color: #fff; margin-bottom: 4px;
+    }
+    .footer-contact-value {
+      font-size: clamp(14px, 1.7vw, 18px); color: #fff; font-weight: 400;
+    }
+
+    .footer-logo-col {
+      padding: 0 clamp(20px, 4vw, 60px);
+      text-align: center; display: flex; flex-direction: column;
+      align-items: center; gap: 20px;
+    }
+    .footer-logo {
+      font-weight: 800; font-size: clamp(28px, 3.5vw, 40px); color: #fff;
+    }
+    .footer-logo span { color: var(--gold-alt); }
+
+    .footer-desc {
+      font-size: clamp(14px, 1.7vw, 18px); color: #fff;
+      line-height: 1.7; max-width: 340px;
+    }
+
+    .footer-socials { display: flex; gap: 12px; }
+    .social-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,.3);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: border-color .2s;
+    }
+    .social-btn:hover { border-color: var(--gold); }
+
+    .footer-links-col { padding-left: clamp(20px, 4vw, 60px); }
+    .footer-links-title {
+      font-size: clamp(18px, 2.2vw, 24px); font-weight: 400;
+      color: #fff; margin-bottom: 24px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 18px; }
+    .footer-links a {
+      font-size: clamp(14px, 1.7vw, 18px); color: #fff;
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--gold-alt); }
+
+    /* Bottom bar */
+    .footer-bottom {
+      background: var(--cream); min-height: 72px;
+      padding: 0 clamp(16px, 4vw, 60px);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+    .footer-bottom p { font-size: clamp(13px, 1.5vw, 18px); color: #1C1D20; }
+    .footer-bottom-links { display: flex; gap: clamp(16px, 3vw, 40px); flex-wrap: wrap; }
+    .footer-bottom-links a {
+      font-size: clamp(13px, 1.5vw, 18px); color: #262629;
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-bottom-links a:hover { color: var(--gold); }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE BREAKPOINTS
+    ═══════════════════════════════════ */
+
+    /* — Tablet (≤ 1100px) — */
+    @media (max-width: 1100px) {
+      .exp-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* — Tablet (≤ 900px) — */
+    @media (max-width: 900px) {
+      /* Nav */
+      .nav-links, .nav-cta { display: none; }
+      .burger { display: flex; }
+
+      /* Hero */
+      .hero-content {
+        flex-direction: column; align-items: flex-start;
+        padding-bottom: clamp(120px, 18vw, 200px);
+      }
+      .hero-text { margin-left: 0; max-width: 100%; }
+      .hero-photo-wrapper { display: none; }
+      /* Show photo as BG overlay, adjust mask */
+      .hero-bg-photo {
+        width: 70%;
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.25) 30%, rgba(0,0,0,.6) 60%);
+        mask-image:         linear-gradient(to right, transparent 0%, rgba(0,0,0,.25) 30%, rgba(0,0,0,.6) 60%);
+      }
+
+      /* Stats */
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) {
+        border-right: 1px solid rgba(90,90,90,.09);
+        border-top: 1px solid rgba(90,90,90,.09);
+      }
+      .stat-item:nth-child(4) { border-top: 1px solid rgba(90,90,90,.09); }
+
+      /* Bio */
+      .bio-flex { flex-direction: column; align-items: center; }
+      .bio-photo-col { width: min(360px, 100%); }
+      .bio-badge { right: -10px; }
+      .bio-text-col { padding-top: 0; }
+
+      /* Cadre 4D */
+      .cadre-grid { grid-template-columns: 1fr; }
+
+      /* Timeline → mobile left-rail */
+      .timeline-vline { left: 24px; transform: none; }
+      .tl-row { flex-direction: column; align-items: flex-start; padding-left: 64px; }
+      .tl-dot {
+        position: absolute; left: 0;
+        width: 48px; height: 48px;
+        border-width: 2px;
+      }
+      .tl-row { position: relative; margin-bottom: 28px; }
+      .tl-card { width: 100% !important; text-align: left !important; }
+      .tl-spacer { display: none; }
+
+      /* Expertise */
+      .exp-grid { grid-template-columns: 1fr; }
+
+      /* Publications */
+      .pub-grid { grid-template-columns: 1fr; }
+
+      /* Footer */
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .footer-divider { display: none; }
+      .footer-logo-col { padding: 0; }
+      .footer-links-col { padding-left: 0; }
+    }
+
+    /* — Mobile (≤ 600px) — */
+    @media (max-width: 600px) {
+      .hero-card { margin: 10px 10px 0; }
+      .hero-subtitle span { font-size: 10px; }
+      .hero-title { font-size: clamp(30px, 8vw, 42px); }
+      .hero-title .script-line { font-size: clamp(40px, 10vw, 54px); }
+      .stats-wrapper { margin-top: -36px; }
+      .pub-grid { grid-template-columns: 1fr; }
+      .footer-bottom {
+        flex-direction: column; align-items: flex-start;
+        padding: 24px clamp(16px, 4vw, 40px);
+        min-height: auto;
+      }
+    }
+
+    /* — Large screens (≥ 1400px) — */
+    @media (min-width: 1400px) {
+      .pub-grid { max-width: 1200px; margin: 0 auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ MOBILE MENU ══════════════════ -->
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
+  <button class="close-btn" id="close-btn" aria-label="Fermer le menu">
+    <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+      <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>
+  </button>
+  <a href="#accueil"   onclick="closeMenu()">Accueil</a>
+  <a href="#biographie" onclick="closeMenu()">Biographie</a>
+  <a href="#parcours"  onclick="closeMenu()">Parcours</a>
+  <a href="#expertise" onclick="closeMenu()">Expertise</a>
+  <a href="#publications" onclick="closeMenu()">Publications</a>
+  <a href="#contact"   onclick="closeMenu()" style="color:var(--gold-alt);">Me Contacter ↗</a>
+</div>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<div class="hero-card" id="accueil">
+  <div class="hero-card-clip">
+    <div class="hero-bg-photo"></div>
+    <div class="hero-rings"></div>
+  </div>
+
+  <div class="hero-inner">
+
+    <div class="navbar-sticky" id="navbar-sticky">
+        <!-- NAV -->
+        <nav class="navbar">
+            <div class="navbar-inner">
+                <a href="#accueil" class="nav-logo"><span>S.A.</span>BAKARI</a>
+                <ul class="nav-links">
+                    <li><a href="#accueil" class="active">Accueil</a></li>
+                    <li><a href="#biographie">Biographie</a></li>
+                    <li><a href="#parcours">Parcours</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                </ul>
+                <a href="#contact" class="nav-cta">ME CONTACTER <span>↗</span></a>
+                <button class="burger" id="burger" aria-label="Ouvrir le menu">
+                    <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </div>
+       
+    
+
+    <!-- CONTENT -->
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          Bâtir Votre<br>
+          <span class="script-line">succès</span> Au Bénin&nbsp;!
+        </h1>
+        <div class="hero-subtitle">
+          <div class="bar"></div>
+          <span>Ministre des Affaires Étrangères · Entrepreneur · Banquier</span>
+        </div>
+        <p class="hero-desc">
+          Une diplomatie de résultats dirigée par Olushegun Adjadi Bakari pour transformer chaque accord en levier de croissance économique.
+        </p>
+        <div class="hero-buttons">
+          <a href="#parcours" class="btn-primary">Découvrir la vision <span>↗</span></a>
+          <a href="#contact" class="btn-outline">Me Contacter <span>↗</span></a>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrapper">
+        <div class="photo-bg-card"></div>
+        <img class="photo-img" src="https://i.ibb.co/TqW3sWWx/a60f6b42-92e5-456e-9bea-be419e5b4375.png" alt="Shegun Adjadi Bakari" onerror="this.style.opacity='0'" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ STATS BAR ══════════════════ -->
+<div class="stats-wrapper">
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">18+</div>
+      <div class="stat-label">Années d'expérience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">04</div>
+      <div class="stat-label">Pays couverts</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">15+</div>
+      <div class="stat-label">Missions diplomatiques</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">2023</div>
+      <div class="stat-label">En poste</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ BIOGRAPHIE ══════════════════ -->
+<section id="biographie" class="section">
+  <div class="section-inner">
+    <div class="bio-flex">
+      <!-- Photo -->
+      <div class="bio-photo-col">
+        <div class="bio-img-wrap">
+          <img src="https://i.ibb.co/99Dj7hGt/T2.png" alt="Shegun Adjadi Bakari"
+            onerror="this.src='https://placehold.co/420x500/E8E4DD/1B2F5E?text=Photo'" />
+        </div>
+        <div class="bio-badge">
+          <span class="bio-badge-num">18+</span>
+          <span class="bio-badge-label">Années d'Expertise</span>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="bio-text-col">
+        <p class="bio-tag">Biographie</p>
+        <h2 class="bio-title">
+          Une vision <em>panafricaine</em><br>pour le Bénin
+        </h2>
+        <p class="bio-p">
+          Né à Pointe-Noire en 1979, Shegun Adjadi Bakari est l'incarnation d'un parcours d'exception : boursier de la République béninoise, il forge son expertise dans les grandes institutions financières parisiennes avant de revenir sur le continent pour transformer ses économies.
+        </p>
+        <p class="bio-p">
+          Après avoir financé des projets énergétiques structurants pour l'Afrique chez Société Générale, il se lance dans l'entrepreneuriat avec Spiro — faisant du Bénin un leader mondial de la mobilité électrique en deux-roues.
+        </p>
+        <div class="quote-box">
+          <div class="quote-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35" fill="none">
+                <path
+                    d="M34.8973 28.8477L30.6248 22.4561L31.3768 22.2168C31.5363 22.1712 31.6559 22.0744 31.7357 21.9263C31.8154 21.7782 31.8211 21.6357 31.7528 21.499C31.7528 21.4762 31.7528 21.4648 31.7528 21.4648C31.7528 21.4648 31.7528 21.4535 31.7528 21.4307L30.4539 18.0811L33.1199 15.5859C33.2339 15.472 33.2965 15.3353 33.3079 15.1758C33.3193 15.0163 33.2681 14.8796 33.1541 14.7656C33.1313 14.7656 33.1199 14.7599 33.1199 14.7485C33.1199 14.7371 33.1199 14.7314 33.1199 14.7314L30.4539 12.2705L31.7528 8.88672C31.8211 8.72721 31.8211 8.5734 31.7528 8.42529C31.6844 8.27718 31.5705 8.18034 31.411 8.13477C31.411 8.13477 31.3996 8.13477 31.3768 8.13477L27.8904 7.04102L27.5828 3.41797C27.56 3.34961 27.5316 3.27555 27.4974 3.1958C27.4632 3.11605 27.4119 3.05338 27.3436 3.00781C27.298 2.96224 27.2353 2.92806 27.1556 2.90527C27.0758 2.88249 26.9904 2.88249 26.8992 2.90527L23.242 3.41797L21.3963 0.273438C21.3052 0.136719 21.1798 0.0512695 21.0203 0.0170898C20.8608 -0.0170898 20.7127 0 20.576 0.0683594C20.576 0.0911446 20.576 0.102539 20.576 0.102539L17.4998 2.11914L14.4237 0.102539C14.2869 0.0113945 14.1445 -0.0170898 13.9964 0.0170898C13.8483 0.0512695 13.7287 0.136719 13.6375 0.273438C13.6375 0.273438 13.6318 0.273438 13.6204 0.273438C13.609 0.273438 13.6033 0.273438 13.6033 0.273438L11.7576 3.41797L8.10041 2.90527C7.9409 2.88249 7.79279 2.91667 7.65607 3.00781C7.51935 3.09896 7.45099 3.22428 7.45099 3.38379C7.42821 3.40658 7.41681 3.41797 7.41681 3.41797L7.1092 7.04102L3.62287 8.13477C3.46336 8.18034 3.34943 8.27148 3.28107 8.4082C3.21271 8.54492 3.20132 8.69303 3.24689 8.85254C3.24689 8.85254 3.24689 8.85824 3.24689 8.86963C3.24689 8.88102 3.24689 8.88672 3.24689 8.88672L4.54572 12.2705L1.87971 14.7314C1.76577 14.8454 1.70311 14.9821 1.69172 15.1416C1.68032 15.3011 1.73159 15.4378 1.84553 15.5518C1.86831 15.5745 1.87971 15.5859 1.87971 15.5859L4.54572 18.0811L3.24689 21.4307C3.17853 21.5902 3.17853 21.744 3.24689 21.8921C3.31525 22.0402 3.42918 22.1484 3.58869 22.2168C3.58869 22.2168 3.60008 22.2168 3.62287 22.2168L4.37482 22.4561L0.102362 29.4287C0.0112157 29.5654 -0.0172674 29.7135 0.0169123 29.873C0.051092 30.0326 0.136541 30.1579 0.27326 30.249C0.341619 30.2946 0.409979 30.3231 0.478338 30.3345C0.546697 30.3459 0.615057 30.3402 0.683416 30.3174L6.52814 29.2578L7.58771 34.5215C7.6105 34.6354 7.66747 34.738 7.75861 34.8291C7.84976 34.9202 7.9523 34.9772 8.06623 35C8.06623 35 8.07762 35 8.10041 35C8.12319 35 8.14598 35 8.16877 35C8.25991 35 8.35106 34.9772 8.44221 34.9316C8.53335 34.8861 8.60171 34.8177 8.64728 34.7266L12.7488 28.6084L13.6033 30.0439C13.6489 30.1123 13.7059 30.1693 13.7742 30.2148C13.8426 30.2604 13.911 30.2946 13.9793 30.3174C14.0021 30.3174 14.0249 30.3174 14.0477 30.3174C14.0705 30.3174 14.0932 30.3174 14.116 30.3174C14.1844 30.3174 14.2414 30.3117 14.2869 30.3003C14.3325 30.2889 14.3781 30.2718 14.4237 30.249L17.4998 28.2324L20.576 30.249C20.7127 30.3402 20.8551 30.3687 21.0032 30.3345C21.1514 30.3003 21.271 30.2148 21.3621 30.0781C21.3621 30.0781 21.3678 30.0724 21.3792 30.061C21.3906 30.0496 21.3963 30.0439 21.3963 30.0439L22.2508 28.6084L26.3524 34.7266C26.3979 34.8177 26.4663 34.8861 26.5574 34.9316C26.6486 34.9772 26.7397 35 26.8309 35C26.8537 35 26.8765 35 26.8992 35C26.922 35 26.9334 35 26.9334 35C27.0473 34.9772 27.1499 34.9202 27.241 34.8291C27.3322 34.738 27.3891 34.6354 27.4119 34.5215L28.4715 29.2236L34.3504 29.7363C34.5099 29.7591 34.6523 29.7192 34.7777 29.6167C34.903 29.5142 34.977 29.3831 34.9998 29.2236C34.9998 29.1553 34.9941 29.0869 34.9827 29.0186C34.9713 28.9502 34.9429 28.8932 34.8973 28.8477ZM8.47639 32.915L7.58771 28.4717C7.54214 28.3122 7.45669 28.1868 7.33137 28.0957C7.20604 28.0046 7.06362 27.9704 6.90412 27.9932L1.77717 28.9502L5.53693 22.7979L7.1092 23.3105L7.41681 26.8994C7.4396 26.9906 7.46808 27.0703 7.50226 27.1387C7.53644 27.207 7.58771 27.264 7.65607 27.3096C7.70165 27.3551 7.76431 27.3893 7.84406 27.4121C7.92381 27.4349 8.00926 27.4463 8.10041 27.4463L11.7576 26.9336L12.0653 27.4805L8.47639 32.915ZM22.4559 26.0107L20.7127 28.916L17.8074 27.0361C17.7163 26.9678 17.6138 26.9336 17.4998 26.9336C17.3859 26.9336 17.2834 26.9678 17.1922 27.0361L14.2869 28.916L12.5438 26.0107C12.4982 25.9196 12.4298 25.8455 12.3387 25.7886C12.2475 25.7316 12.145 25.7031 12.0311 25.7031C12.0311 25.7031 12.0254 25.7031 12.014 25.7031C12.0026 25.7031 11.9855 25.7145 11.9627 25.7373L8.54474 26.1816L8.23713 22.832C8.23713 22.6953 8.19725 22.5814 8.1175 22.4902C8.03775 22.3991 7.9409 22.3421 7.82697 22.3193L4.54572 21.2939L5.77619 18.1152C5.82176 18.0241 5.83316 17.9159 5.81037 17.7905C5.78758 17.6652 5.73062 17.5684 5.63947 17.5L3.14435 15.1758L5.63947 12.8516C5.73062 12.7604 5.78758 12.6579 5.81037 12.5439C5.83316 12.43 5.82176 12.3161 5.77619 12.2021L4.54572 9.05762L7.86115 8.03223C7.97508 7.98665 8.06623 7.91829 8.13459 7.82715C8.20295 7.736 8.24852 7.63346 8.27131 7.51953L8.54474 4.13574L11.9627 4.61426C12.0766 4.63704 12.1906 4.61996 12.3045 4.56299C12.4184 4.50602 12.4982 4.43197 12.5438 4.34082L14.3211 1.40137L17.1922 3.31543C17.2834 3.361 17.3859 3.38379 17.4998 3.38379C17.6138 3.38379 17.7163 3.361 17.8074 3.31543L20.7127 1.40137L22.4559 4.34082C22.5242 4.43197 22.6097 4.50602 22.7122 4.56299C22.8148 4.61996 22.923 4.63704 23.0369 4.61426L26.4549 4.13574L26.7625 7.51953C26.7625 7.63346 26.8024 7.736 26.8821 7.82715C26.9619 7.91829 27.0587 7.98665 27.1727 8.03223L30.4539 9.05762L29.2235 12.2021C29.1779 12.3161 29.1665 12.43 29.1893 12.5439C29.2121 12.6579 29.269 12.7604 29.3602 12.8516L31.8553 15.1758L29.3602 17.5C29.269 17.5684 29.2121 17.6652 29.1893 17.7905C29.1665 17.9159 29.1779 18.0241 29.2235 18.1152L30.4539 21.2939L27.1385 22.3193C27.0473 22.3421 26.9619 22.3991 26.8821 22.4902C26.8024 22.5814 26.7625 22.6953 26.7625 22.832L26.4549 26.1816L23.0369 25.7373C22.923 25.7145 22.8148 25.7259 22.7122 25.7715C22.6097 25.8171 22.5242 25.8968 22.4559 26.0107ZM28.0613 27.9932C27.9018 27.9932 27.7651 28.033 27.6512 28.1128C27.5373 28.1925 27.4575 28.3122 27.4119 28.4717L26.5233 32.915L22.9344 27.4805L23.242 26.9336L26.8992 27.4463C27.0587 27.4691 27.2069 27.4292 27.3436 27.3267C27.4803 27.2241 27.56 27.0931 27.5828 26.9336C27.5828 26.9336 27.5828 26.9222 27.5828 26.8994L27.8904 23.3105L29.4627 22.7979L33.2567 28.4717L28.0613 27.9932ZM26.2498 12.2363C26.2498 11.7578 26.0789 11.3477 25.7371 11.0059C25.3953 10.6641 24.9852 10.4932 24.5067 10.4932H20.4051V8.16895C20.4051 7.37142 20.1203 6.68783 19.5506 6.11816C18.9809 5.5485 18.2973 5.26367 17.4998 5.26367C17.3403 5.26367 17.2036 5.32064 17.0897 5.43457C16.9757 5.5485 16.9188 5.68522 16.9188 5.84473V8.61328L15.8592 10.6982L13.9793 12.2021C13.9793 12.0654 13.9223 11.9401 13.8084 11.8262C13.6945 11.7122 13.5692 11.6553 13.4324 11.6553H9.33088C9.17137 11.6553 9.03465 11.7122 8.92072 11.8262C8.80679 11.9401 8.74982 12.0768 8.74982 12.2363V20.9863C8.74982 21.1458 8.80679 21.2826 8.92072 21.3965C9.03465 21.5104 9.17137 21.5674 9.33088 21.5674H13.4324C13.5919 21.5674 13.7287 21.5104 13.8426 21.3965C13.9565 21.2826 14.0135 21.1458 14.0135 20.9863H22.7635C23.242 20.9863 23.6522 20.8154 23.994 20.4736C24.3358 20.1318 24.5067 19.7217 24.5067 19.2432C24.5067 19.1064 24.4839 18.964 24.4383 18.8159C24.3927 18.6678 24.3358 18.5254 24.2674 18.3887C24.313 18.3659 24.3642 18.3317 24.4212 18.2861C24.4782 18.2406 24.5294 18.195 24.575 18.1494C24.8485 17.876 25.0137 17.5456 25.0706 17.1582C25.1276 16.7708 25.0535 16.4062 24.8485 16.0645C24.894 16.0189 24.9453 15.979 25.0023 15.9448C25.0592 15.9106 25.1105 15.8708 25.1561 15.8252C25.4295 15.5518 25.5947 15.2214 25.6517 14.834C25.7086 14.4466 25.6346 14.082 25.4295 13.7402C25.4751 13.6947 25.5264 13.6548 25.5833 13.6206C25.6403 13.5864 25.6916 13.5465 25.7371 13.501C25.8966 13.3415 26.022 13.1535 26.1131 12.937C26.2043 12.7205 26.2498 12.487 26.2498 12.2363ZM12.8172 20.4053H9.91193V12.8174H12.8172V20.4053ZM24.9168 12.6807C24.8485 12.7262 24.7801 12.7661 24.7117 12.8003C24.6434 12.8345 24.575 12.8402 24.5067 12.8174H22.1824V14.0137H23.9256C24.0851 14.0137 24.2218 14.0706 24.3358 14.1846C24.4497 14.2985 24.5067 14.4352 24.5067 14.5947C24.5067 14.6631 24.4896 14.7314 24.4554 14.7998C24.4212 14.8682 24.3813 14.9365 24.3358 15.0049C24.2674 15.0505 24.199 15.0903 24.1307 15.1245C24.0623 15.1587 23.994 15.1758 23.9256 15.1758H21.5672V16.3379H23.3445C23.5041 16.3379 23.6408 16.3949 23.7547 16.5088C23.8686 16.6227 23.9256 16.7594 23.9256 16.9189C23.9256 16.9873 23.9085 17.0614 23.8743 17.1411C23.8402 17.2209 23.8003 17.2835 23.7547 17.3291C23.6863 17.3747 23.618 17.4146 23.5496 17.4487C23.4813 17.4829 23.4129 17.5 23.3445 17.5H20.9862V18.6621H22.7635C22.923 18.6621 23.0597 18.7191 23.1737 18.833C23.2876 18.9469 23.3445 19.0837 23.3445 19.2432C23.3445 19.3343 23.3275 19.4141 23.2933 19.4824C23.2591 19.5508 23.2078 19.6077 23.1395 19.6533C23.0939 19.7217 23.0369 19.7673 22.9686 19.79C22.9002 19.8128 22.8319 19.8242 22.7635 19.8242H14.0135V13.7061L16.7137 11.5527C16.7365 11.5072 16.7593 11.473 16.782 11.4502C16.8048 11.4274 16.8276 11.3932 16.8504 11.3477L18.0125 9.02344C18.0353 8.97787 18.0524 8.93229 18.0638 8.88672C18.0752 8.84115 18.0809 8.79557 18.0809 8.75V6.52832C18.4227 6.64225 18.7018 6.85303 18.9183 7.16064C19.1348 7.46826 19.243 7.80436 19.243 8.16895V11.0742C19.243 11.2337 19.3 11.3704 19.4139 11.4844C19.5278 11.5983 19.6645 11.6553 19.824 11.6553H24.5067C24.6662 11.6553 24.8029 11.7122 24.9168 11.8262C25.0307 11.9401 25.0877 12.0768 25.0877 12.2363C25.0877 12.3275 25.0706 12.4072 25.0364 12.4756C25.0023 12.5439 24.9624 12.6123 24.9168 12.6807Z"
+                    fill="white" />
+            </svg>
+          </div>
+          <p class="quote-text">« Le Bénin a fait le choix d'une diplomatie décomplexée, prête à construire des ponts et à contribuer activement à la prospérité de toute la sous-région. »</p>
+        </div>
+        <a href="#parcours" class="btn-primary">Découvrir la vision <span>↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CADRE 4D ══════════════════ -->
+<section class="cadre-section section">
+  <div class="section-inner">
+    <div class="section-center">
+      <h2 class="cadre-title">
+        Le Cadre 4D de la<br>
+        <span class="script">Diplomatie</span>
+        <span style="font-family:'Outfit',sans-serif;"> Moderne</span>
+      </h2>
+    </div>
+    <div class="cadre-grid">
+
+      <!-- 01 -->
+      <div class="cadre-card">
+        <div class="cadre-card-header">
+          <div class="cadre-icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36" fill="none">
+              <path d="M24 31.5V28.5C24 26.9087 23.3679 25.3826 22.2426 24.2574C21.1174 23.1321 19.5913 22.5 18 22.5H9C7.4087 22.5 5.88258 23.1321 4.75736 24.2574C3.63214 25.3826 3 26.9087 3 28.5V31.5" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M13.5 16.5C16.8137 16.5 19.5 13.8137 19.5 10.5C19.5 7.18629 16.8137 4.5 13.5 4.5C10.1863 4.5 7.5 7.18629 7.5 10.5C7.5 13.8137 10.1863 16.5 13.5 16.5Z" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M33 31.5V28.5C32.999 27.1706 32.5565 25.8792 31.742 24.8285C30.9276 23.7778 29.7872 23.0274 28.5 22.695" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M24 4.69501C25.2906 5.02546 26.4346 5.77606 27.2515 6.82847C28.0684 7.88089 28.5118 9.17525 28.5118 10.5075C28.5118 11.8398 28.0684 13.1341 27.2515 14.1865C26.4346 15.239 25.2906 15.9896 24 16.32" stroke="#D4AF37" stroke-width="2.25"/>
+            </svg>
+          </div>
+          <span class="cadre-num">01</span>
+        </div>
+        <h3>Disponibilité</h3>
+        <p class="sub">Leadership Accessible</p>
+        <p>Un leadership accessible aux citoyens et partenaires internationaux. Une diplomatie de porte ouverte privilégiant le dialogue et la réactivité.</p>
+      </div>
+
+      <!-- 02 -->
+      <div class="cadre-card">
+        <div class="cadre-card-header">
+          <div class="cadre-icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36" fill="none">
+              <path d="M31.5 15C31.5 25.5 18 34.5 18 34.5C18 34.5 4.5 25.5 4.5 15C4.5 11.4196 5.92232 7.9858 8.45406 5.45406C10.9858 2.92232 14.4196 1.5 18 1.5C21.5804 1.5 25.0142 2.92232 27.5459 5.45406C30.0777 7.9858 31.5 11.4196 31.5 15Z" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M18 19.5C20.4853 19.5 22.5 17.4853 22.5 15C22.5 12.5147 20.4853 10.5 18 10.5C15.5147 10.5 13.5 12.5147 13.5 15C13.5 17.4853 15.5147 19.5 18 19.5Z" stroke="#D4AF37" stroke-width="2.25"/>
+            </svg>
+          </div>
+          <span class="cadre-num">02</span>
+        </div>
+        <h3>Diaspora</h3>
+        <p class="sub">Unité Au-delà des Frontières</p>
+        <p>Renforcer les liens avec les communautés béninoises du monde entier, transformer la diaspora en ambassadeurs du développement national.</p>
+      </div>
+
+      <!-- 03 -->
+      <div class="cadre-card">
+        <div class="cadre-card-header">
+          <div class="cadre-icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36" fill="none">
+              <path d="M30 4.5H6C4.34315 4.5 3 5.84315 3 7.5V22.5C3 24.1569 4.34315 25.5 6 25.5H30C31.6569 25.5 33 24.1569 33 22.5V7.5C33 5.84315 31.6569 4.5 30 4.5Z" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M12 31.5H24" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M18 25.5V31.5" stroke="#D4AF37" stroke-width="2.25"/>
+            </svg>
+          </div>
+          <span class="cadre-num">03</span>
+        </div>
+        <h3>Digital</h3>
+        <p class="sub">Diplomatie Technologique</p>
+        <p>Tirer parti de l'infrastructure numérique pour moderniser les affaires étrangères, améliorer la communication et étendre la portée mondiale du Bénin.</p>
+      </div>
+
+      <!-- 04 -->
+      <div class="cadre-card">
+        <div class="cadre-card-header">
+          <div class="cadre-icon-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36" fill="none">
+              <path d="M18 3V33" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M25.5 7.5L18 3L10.5 7.5" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M25.5 28.5L18 33L10.5 28.5" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M3 18H33" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M7.5 10.5L12 18L7.5 25.5" stroke="#D4AF37" stroke-width="2.25"/>
+              <path d="M28.5 10.5L24 18L28.5 25.5" stroke="#D4AF37" stroke-width="2.25"/>
+            </svg>
+          </div>
+          <span class="cadre-num">04</span>
+        </div>
+        <h3>Développement</h3>
+        <p class="sub">Croissance Stratégique</p>
+        <p>Partenariats stratégiques favorisant la croissance économique, les échanges culturels et le progrès durable pour le Bénin et l'Afrique.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PARCOURS / TIMELINE ══════════════════ -->
+<section id="parcours" class="parcours-section section">
+  <div class="section-inner">
+    <div class="section-center">
+      <span class="section-tag">Parcours d'Exception</span>
+      <h2 class="section-title" style="font-size:clamp(26px,4vw,47px);">Shegun Adjadi Bakari</h2>
+      <p style="font-size:clamp(14px,1.8vw,18px);font-weight:500;color:#64748B;margin-top:8px;">Ministre des Affaires Étrangères de la République du Bénin</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-vline"></div>
+
+      <!-- 2005 — LEFT -->
+      <div class="tl-row">
+        <div class="tl-card left">
+          <p class="org">SKEMA Business School</p>
+          <h3>Finance &amp; Leadership</h3>
+          <p>Expert en Finance (France). Un parcours marqué par l'excellence académique et un leadership étudiant affirmé au Bénin.</p>
+        </div>
+        <div class="tl-dot"><span>2005</span></div>
+        <div class="tl-spacer"></div>
+      </div>
+
+      <!-- 2008–2016 — RIGHT -->
+      <div class="tl-row">
+        <div class="tl-spacer"></div>
+        <div class="tl-dot"><span>2008 –<br>2016</span></div>
+        <div class="tl-card right">
+          <p class="org">Société Générale CIB</p>
+          <h3>Banque d'Affaires</h3>
+          <p>Banquier d'affaires à Paris. Spécialiste des financements structurés pour les fleurons de l'industrie européenne.</p>
+        </div>
+      </div>
+
+      <!-- 2016–2021 — LEFT -->
+      <div class="tl-row">
+        <div class="tl-card left">
+          <p class="org">Présidence du Togo</p>
+          <h3>Conseiller Spécial</h3>
+          <p>Conseiller du Chef de l'État. Architecte du Plan National de Développement (PND) et des réformes de croissance.</p>
+        </div>
+        <div class="tl-dot"><span>2016 –<br>2021</span></div>
+        <div class="tl-spacer"></div>
+      </div>
+
+      <!-- 2022 — RIGHT -->
+      <div class="tl-row">
+        <div class="tl-spacer"></div>
+        <div class="tl-dot"><span>2022</span></div>
+        <div class="tl-card right">
+          <p class="org">M Auto / ATIF</p>
+          <h3>Transition Énergétique</h3>
+          <p>Visionnaire de la mobilité électrique. Création de la plus grande plateforme de transport décarboné en Afrique.</p>
+        </div>
+      </div>
+
+      <!-- Avril 2023 — LEFT -->
+      <div class="tl-row">
+        <div class="tl-card left">
+          <p class="org">Présidence du Bénin</p>
+          <h3>Ministre-Conseiller</h3>
+          <p>Appelé pour piloter la stratégie d'investissements et renforcer l'attractivité économique du Bénin.</p>
+        </div>
+        <div class="tl-dot"><span>Avril<br>2023</span></div>
+        <div class="tl-spacer"></div>
+      </div>
+
+      <!-- Juin 2023 — RIGHT -->
+      <div class="tl-row">
+        <div class="tl-spacer"></div>
+        <div class="tl-dot"><span>Juin<br>2023</span></div>
+        <div class="tl-card right">
+          <p class="org">Gouvernement</p>
+          <h3>Affaires Étrangères</h3>
+          <p>Chef de la diplomatie. Mise en œuvre de la "Diplomatie 4D" pour un rayonnement stratégique du pays.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ EXPERTISE ══════════════════ -->
+<section id="expertise" class="expertise-section section">
+  <div class="section-inner">
+    <div class="section-center">
+      <span class="section-tag">Expertise</span>
+      <h2 class="section-title exp-title">
+        Domaines <span class="script">d'Influence</span>
+      </h2>
+    </div>
+    <div class="exp-grid">
+
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="#1A365D" stroke-width="1.8"/>
+            <path d="M2 12H22" stroke="#1A365D" stroke-width="1.8"/>
+            <path d="M12 2C14.5013 4.73835 15.9228 8.29203 16 12C15.9228 15.708 14.5013 19.2616 12 22C9.49872 19.2616 8.07725 15.708 8 12C8.07725 8.29203 9.49872 4.73835 12 2Z" stroke="#1A365D" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Intégration Régionale</h3>
+        <p>Architecte de la coopération ouest-africaine et des dynamiques de croissance au sein de la CEDEAO.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M16 21V19C16 17.9391 15.5786 16.9217 14.8284 16.1716C14.0783 15.4214 13.0609 15 12 15H6C4.93913 15 3.92172 15.4214 3.17157 16.1716C2.42143 16.9217 2 17.9391 2 19V21" stroke="#1A365D" stroke-width="1.8"/>
+            <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="#1A365D" stroke-width="1.8"/>
+            <path d="M22 21V19C21.9993 18.1136 21.7044 17.2527 21.1614 16.5522C20.6184 15.8517 19.8581 15.3515 19 15.13" stroke="#1A365D" stroke-width="1.8"/>
+            <path d="M16 3.13C16.8604 3.35 17.623 3.85 18.1676 4.55C18.7122 5.25 19.0078 6.12 19.0078 7C19.0078 7.89 18.7122 8.76 18.1676 9.46C17.623 10.16 16.8604 10.66 16 10.88" stroke="#1A365D" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Relations Bilatérales</h3>
+        <p>Négociations de haut niveau et renforcement des liens stratégiques avec les partenaires mondiaux.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M20 7H4C2.89543 7 2 7.89543 2 9V19C2 20.1046 2.89543 21 4 21H20C21.1046 21 22 20.1046 22 19V9C22 7.89543 21.1046 7 20 7Z" stroke="#1A365D" stroke-width="1.8"/>
+            <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="#1A365D" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Économie &amp; IDE</h3>
+        <p>Expertise en financements structurés et stratégie d'attractivité des investissements directs étrangers.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#1A365D" stroke-width="1.8"/>
+            <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#1A365D" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Béninois de l'Extérieur</h3>
+        <p>Mobilisation de la diaspora comme levier de transfert de compétences et d'investissements nationaux.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M19 21L12 17L5 21V5C5 4.46957 5.21071 3.96086 5.58579 3.58579C5.96086 3.21071 6.46957 3 7 3H17C17.5304 3 18.0391 3.21071 18.4142 3.58579C18.7893 3.96086 19 4.46957 19 5V21Z" stroke="#1A365D" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Diplomatie Culturelle</h3>
+        <p>Promotion de l'exception culturelle béninoise et valorisation du patrimoine à l'échelle mondiale.</p>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="#1A365D" stroke-width="1.8"/>
+            <path d="M9 22V12H15V22" stroke="#1A365D" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <h3>Instances Mondiales</h3>
+        <p>Représentation active dans les organisations internationales pour porter la voix stratégique du Bénin.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PUBLICATIONS ══════════════════ -->
+<section id="publications">
+  <div style="max-width:1300px;margin:0 auto;">
+    <div class="section-center">
+      <span class="section-tag">Médiathèque</span>
+      <h2 class="pub-title">Publications &amp; <span class="script">Presse</span></h2>
+    </div>
+    <div class="pub-grid">
+
+      <div class="pub-card lift">
+        <p class="pub-date">24 Octobre 2023</p>
+        <h3>Le Bénin au cœur de la nouvelle dynamique diplomatique en Afrique de l'Ouest</h3>
+        <a href="#">Lire l'article →</a>
+      </div>
+
+      <div class="pub-card lift">
+        <p class="pub-date">12 Septembre 2023</p>
+        <h3>Transformation digitale des services consulaires : Bilan et Perspectives</h3>
+        <a href="#">Voir le rapport →</a>
+      </div>
+
+      <div class="pub-card lift">
+        <p class="pub-date">05 Août 2023</p>
+        <h3>Coopération économique : Signature de nouveaux accords stratégiques</h3>
+        <a href="#">En savoir plus →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer id="contact">
+  <div class="footer-grid">
+
+    <!-- Col 1 — Contact -->
+    <div>
+      <div class="footer-contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" style="flex-shrink:0;"><g clip-path="url(#fp1)"><mask id="fm1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40"><path d="M40 0H0V40H40V0Z" fill="white"/></mask><g mask="url(#fm1)"><path d="M22.7676 0.791504C31.8387 0.791504 39.2184 8.17119 39.2184 17.2422" stroke="#D4AF37" stroke-width="1.5625" stroke-miterlimit="10" stroke-linecap="round"/><path d="M22.7676 5.49121C29.2466 5.49121 34.5184 10.7631 34.5184 17.242" stroke="#D4AF37" stroke-width="1.5625" stroke-miterlimit="10" stroke-linecap="round"/><path d="M22.7676 10.1924C26.6552 10.1924 29.8176 13.3548 29.8176 17.2423" stroke="#D4AF37" stroke-width="1.5625" stroke-miterlimit="10" stroke-linecap="round"/><path d="M22.7676 14.8921C24.0652 14.8921 25.1176 15.9445 25.1176 17.2421" stroke="#D4AF37" stroke-width="1.5625" stroke-miterlimit="10" stroke-linecap="round"/><path d="M11.5777 22.704C11.0821 22.053 10.6124 21.3808 10.1701 20.6886C9.5889 19.7785 9.76468 18.573 10.5279 17.8097L13.1803 15.1573C13.7513 14.5871 13.7513 13.6613 13.1803 13.0909L6.93804 6.84879C6.36773 6.27762 5.44202 6.27762 4.87171 6.84879L3.29195 8.4284C0.727961 10.9918 0.034992 14.9042 1.64437 18.1526C4.50765 23.9331 10.3998 32.794 21.7514 38.3604C25.01 39.9574 28.9405 39.2801 31.5061 36.7144L33.1217 35.0987C33.6927 34.5285 33.6927 33.6027 33.1217 33.0315L26.8794 26.7902C26.3091 26.219 25.3834 26.219 24.8131 26.7902L22.1608 29.4426C21.3974 30.2058 20.192 30.3815 19.2818 29.8004C18.2972 29.1711 17.3523 28.4861 16.4515 27.7496" stroke="#D4AF37" stroke-width="1.5625" stroke-miterlimit="10" stroke-linecap="round"/></g></g><defs><clipPath id="fp1"><rect width="40" height="40" fill="white"/></clipPath></defs></svg>
+        <div>
+          <p class="footer-contact-label">Téléphone:</p>
+          <p class="footer-contact-value">+229 01 XX XX XX XX</p>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
+            <g clip-path="url(#clip0_105_1712)">
+                <mask id="mask0_105_1712" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="40"
+                    height="40">
+                    <path d="M40 0H0V40H40V0Z" fill="white" />
+                </mask>
+                <g mask="url(#mask0_105_1712)">
+                    <path
+                        d="M20.0766 3.12502C19.6446 3.1219 19.2922 3.46955 19.2891 3.9008C19.286 4.33205 19.6328 4.6844 20.0649 4.68752C20.4961 4.69065 20.8485 4.34377 20.8516 3.91252C20.8547 3.48127 20.5078 3.12893 20.0766 3.12502Z"
+                        fill="#D4AF37" />
+                    <path
+                        d="M20.0411 7.81264C17.0246 7.79123 14.5542 10.2248 14.5314 13.2403C14.5087 16.2557 16.9435 18.7273 19.9591 18.75C19.9731 18.7501 19.987 18.7502 20.0009 18.7502C22.9973 18.7502 25.4461 16.3239 25.4688 13.3223C25.4915 10.3071 23.0567 7.83537 20.0411 7.81264ZM20.0008 17.1877C19.9909 17.1877 19.9806 17.1877 19.9708 17.1876C17.8168 17.1713 16.0776 15.4059 16.0938 13.252C16.11 11.1079 17.8591 9.37491 19.9994 9.37491C20.0092 9.37491 20.0195 9.37499 20.0294 9.37507C22.1834 9.39132 23.9226 11.1568 23.9063 13.3106C23.8901 15.4548 22.1411 17.1877 20.0008 17.1877Z"
+                        fill="#D4AF37" />
+                    <path
+                        d="M23.4077 3.717C23.0013 3.57279 22.5545 3.78568 22.4103 4.1924C22.2662 4.59912 22.4791 5.0456 22.8857 5.18982C26.3269 6.40943 28.6203 9.68686 28.5928 13.3452C28.5896 13.7766 28.9367 14.1291 29.3682 14.1323C29.3682 14.1323 29.3721 14.1323 29.3742 14.1323C29.8028 14.1323 30.152 13.7864 30.1553 13.3569C30.1878 9.03295 27.4761 5.15896 23.4077 3.717Z"
+                        fill="#D4AF37" />
+                    <path
+                        d="M24.7938 29.4096C29.9901 22.7209 33.2376 19.233 33.2814 13.3811C33.3364 6.01837 27.3612 0 19.999 0C12.7228 0 6.77452 5.89282 6.7192 13.1819C6.67452 19.1925 9.98226 22.6756 15.2144 29.4085C10.0093 30.1863 6.7192 32.1408 6.7192 34.5313C6.7192 36.1327 8.19936 37.5696 10.8871 38.5774C13.3334 39.4948 16.5699 40 20.0003 40C23.4307 40 26.6672 39.4948 29.1135 38.5774C31.8012 37.5695 33.2814 36.1326 33.2814 34.5312C33.2814 32.142 29.9943 30.188 24.7938 29.4096ZM8.28163 13.1937C8.33038 6.76173 13.5784 1.5625 19.9992 1.5625C26.496 1.5625 31.7674 6.87408 31.719 13.3695C31.6774 18.9268 28.2335 22.3516 22.7353 29.519C21.7546 30.7969 20.8539 32.005 20.0014 33.1868C19.1514 32.0043 18.2688 30.8178 17.2734 29.5186C11.5479 22.0511 8.23928 18.8851 8.28163 13.1937ZM20.0003 38.4376C13.2932 38.4376 8.28163 36.3753 8.28163 34.5313C8.28163 33.1638 11.2775 31.4363 16.3149 30.8381C17.4284 32.2991 18.4046 33.6265 19.3621 34.9821C19.5084 35.1891 19.7461 35.3124 19.9996 35.3126C19.9993 35.3126 19.9998 35.3126 19.9996 35.3126C20.2529 35.3126 20.4911 35.1898 20.6376 34.9831C21.5861 33.6451 22.589 32.2851 23.693 30.839C28.7257 31.4378 31.719 33.1648 31.719 34.5314C31.7189 36.3753 26.7074 38.4376 20.0003 38.4376Z"
+                        fill="#D4AF37" />
+                </g>
+            </g>
+            <defs>
+                <clipPath id="clip0_105_1712">
+                    <rect width="40" height="40" fill="white" />
+                </clipPath>
+            </defs>
+        </svg>
+        <div>
+          <p class="footer-contact-label">Bureau:</p>
+          <p class="footer-contact-value">Cotonou, République du Bénin</p>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" style="flex-shrink:0;"><g clip-path="url(#fe1)"><mask id="fem1" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="40" height="40"><path d="M0 0H40V40H0V0Z" fill="white"/></mask><g mask="url(#fem1)"><path d="M3.76172 38.2651L14.0034 28.0234" stroke="#D4AF37" stroke-width="1.5625" stroke-linecap="round"/><path d="M36.2368 38.2656L25.877 27.9058" stroke="#D4AF37" stroke-width="1.5625" stroke-linecap="round"/><path d="M23.5156 39.2144H33.9446C35.7356 39.2144 37.1875 37.7626 37.1875 35.9716V17.8566C37.1875 16.9969 36.8461 16.1723 36.2384 15.5643L33.4312 12.7559" stroke="#D4AF37" stroke-width="1.5625" stroke-linecap="round"/><path d="M6.54383 12.7896L3.76297 15.5641C3.15438 16.1724 2.8125 16.9974 2.8125 17.8579V35.9716C2.8125 37.7626 4.26438 39.2145 6.05539 39.2145H16.4843" stroke="#D4AF37" stroke-width="1.5625" stroke-linecap="round"/><path d="M25.6765 4.99586L21.4653 0.782188C20.3287 0.781797 19.6915 0.781641 18.5549 0.78125L14.3379 4.99579" stroke="#D4AF37" stroke-width="1.5625" stroke-linecap="round"/><path d="M36.8638 16.8394L22.3033 31.4089C21.0372 32.6757 18.9839 32.6763 17.7171 31.4102L3.19141 16.8934" stroke="#D4AF37" stroke-width="1.5625" stroke-linecap="round"/><path d="M6.5625 20.25V7.33789C6.5625 6.04344 7.6118 4.99414 8.90625 4.99414H31.0937C32.3882 4.99414 33.4375 6.04344 33.4375 7.33789V19.9941" stroke="#D4AF37" stroke-width="1.5625" stroke-linecap="round"/></g></g><defs><clipPath id="fe1"><rect width="40" height="40" fill="white"/></clipPath></defs></svg>
+        <div>
+          <p class="footer-contact-label">Email:</p>
+          <p class="footer-contact-value">minister@diplomatie.bj</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <!-- Col 2 — Logo -->
+    <div class="footer-logo-col">
+      <div class="footer-logo"><span>S.A.</span>BAKARI</div>
+      <p class="footer-desc">Ministre des Affaires Étrangères, République du Bénin. Champion de l'excellence diplomatique et de la renaissance africaine.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                <path
+                    d="M9.79704 1.34376C9.90371 1.33309 10.3384 1.32776 11.101 1.32776C11.8637 1.32776 12.2664 1.33309 12.309 1.34376C12.437 1.37576 12.5464 1.43709 12.637 1.52776C12.7277 1.61843 12.789 1.72776 12.821 1.85576C12.8317 1.89843 12.837 2.38643 12.837 3.31976C12.837 4.25309 12.8317 4.74643 12.821 4.79976C12.8104 4.89576 12.7677 4.98909 12.693 5.07976C12.6184 5.17043 12.5357 5.23443 12.445 5.27176C12.3544 5.30909 12.2504 5.33043 12.133 5.33576C12.0157 5.34109 11.6904 5.34376 11.157 5.34376H10.165V5.99976H11.253L12.341 6.01576C12.6717 6.15443 12.837 6.37309 12.837 6.67176C12.837 6.71443 12.7197 7.20776 12.485 8.15176C12.2504 9.09576 12.1224 9.58909 12.101 9.63176C12.0477 9.72776 11.9624 9.81843 11.845 9.90376C11.7704 9.94643 11.6904 9.97309 11.605 9.98376C11.5197 9.99443 11.2797 9.99976 10.885 9.99976H10.165V12.0798L10.149 14.1758C10.085 14.3038 10.0264 14.3944 9.97304 14.4478C9.89837 14.5438 9.79704 14.6078 9.66904 14.6398C9.59437 14.6504 9.09304 14.6558 8.16504 14.6558C7.23704 14.6558 6.73571 14.6504 6.66104 14.6398C6.53304 14.6078 6.43171 14.5438 6.35704 14.4478C6.30371 14.3944 6.24504 14.3038 6.18104 14.1758L6.16504 12.0798V9.99976H5.44504C5.05037 9.99976 4.81037 9.99709 4.72504 9.99176C4.63971 9.98643 4.56504 9.96243 4.50104 9.91976C4.40504 9.85576 4.32504 9.77576 4.26104 9.67976L4.24504 9.66376C4.21304 9.61043 4.19171 9.55176 4.18104 9.48776C4.17037 9.42376 4.16504 9.28509 4.16504 9.07176V7.99976C4.16504 7.09309 4.17837 6.58643 4.20504 6.47976C4.23171 6.37309 4.28504 6.27976 4.36504 6.19976C4.44504 6.11976 4.53837 6.06643 4.64504 6.03976C4.75171 6.01309 5.01837 5.99976 5.44504 5.99976H6.16504V5.55176C6.16504 5.21043 6.17037 5.00776 6.18104 4.94376C6.24504 4.31443 6.44237 3.73576 6.77304 3.20776C7.10371 2.67976 7.53304 2.25043 8.06104 1.91976C8.58904 1.58909 9.16771 1.39709 9.79704 1.34376ZM9.84504 2.68776C9.31171 2.76243 8.83971 2.97576 8.42904 3.32776C8.01837 3.67976 7.74371 4.11176 7.60504 4.62376C7.56237 4.78376 7.53571 4.93043 7.52504 5.06376C7.51437 5.19709 7.50904 5.46643 7.50904 5.87176C7.50904 6.24509 7.50904 6.4851 7.50904 6.59176C7.49837 6.75176 7.47971 6.86376 7.45304 6.92776C7.42637 6.99176 7.37571 7.06109 7.30104 7.13576C7.22637 7.21043 7.15704 7.26109 7.09304 7.28776C7.02904 7.31443 6.92771 7.33309 6.78904 7.34376C6.69304 7.34376 6.48504 7.34376 6.16504 7.34376H5.50904V8.65576H6.16504C6.48504 8.65576 6.69304 8.65576 6.78904 8.65576C6.92771 8.66643 7.02904 8.68509 7.09304 8.71176C7.15704 8.73843 7.22637 8.78909 7.30104 8.86376C7.41837 8.97043 7.48237 9.09843 7.49304 9.24776C7.50371 9.29043 7.50904 9.98909 7.50904 11.3438V13.3278H8.82104V11.3438C8.82104 9.98909 8.82637 9.29043 8.83704 9.24776C8.85837 9.09843 8.92237 8.97043 9.02904 8.86376C9.13571 8.75709 9.26371 8.69309 9.41304 8.67176C9.45571 8.66109 9.73304 8.65576 10.245 8.65576H10.981L11.301 7.35976L10.405 7.34376C9.97837 7.34376 9.70104 7.33843 9.57304 7.32776C9.40237 7.32776 9.28771 7.31443 9.22904 7.28776C9.17037 7.26109 9.10371 7.21043 9.02904 7.13576C8.92237 7.01843 8.85837 6.89043 8.83704 6.75176C8.82637 6.67709 8.82104 6.42909 8.82104 6.00776C8.82104 5.58643 8.82637 5.32243 8.83704 5.21576C8.86904 4.88509 8.99704 4.60776 9.22104 4.38376C9.42371 4.18109 9.66371 4.05843 9.94104 4.01576C9.98371 4.00509 10.261 3.99976 10.773 3.99976H11.493V2.67176H10.725C10.5224 2.67176 10.2717 2.67709 9.97304 2.68776H9.84504Z"
+                    fill="white" />
+            </svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                <path
+                    d="M4.51679 1.34376C4.52746 1.34376 4.57546 1.34376 4.66079 1.34376C5.94079 1.33309 7.13546 1.32776 8.24479 1.32776L11.8448 1.34376L12.0368 1.37576C12.3248 1.42909 12.6075 1.52509 12.8848 1.66376C13.3435 1.86643 13.7275 2.14376 14.0368 2.49576C14.4528 2.96509 14.7088 3.53043 14.8048 4.19176C14.8155 4.24509 14.8208 4.35176 14.8208 4.51176V11.4878C14.8208 11.6478 14.8155 11.7544 14.8048 11.8078C14.7515 12.1064 14.6608 12.4051 14.5328 12.7038C14.3195 13.1731 14.0368 13.5624 13.6848 13.8718C13.2155 14.2771 12.6448 14.5331 11.9728 14.6398C11.9195 14.6504 11.8128 14.6558 11.6528 14.6558H4.51679L4.30879 14.6238C3.75412 14.5278 3.25812 14.3198 2.82079 13.9998C2.11679 13.4878 1.68479 12.7571 1.52479 11.8078C1.51412 11.7544 1.50879 11.6531 1.50879 11.5038V4.49576C1.50879 4.34643 1.51412 4.24509 1.52479 4.19176C1.66346 3.34909 2.02612 2.67176 2.61279 2.15976C3.14612 1.69043 3.78079 1.41843 4.51679 1.34376ZM4.54879 2.68776C4.11146 2.75176 3.73279 2.94376 3.41279 3.26376C3.09279 3.58376 2.90612 3.96243 2.85279 4.39976C2.84212 4.46376 2.83679 5.69576 2.83679 8.09576V11.1198C2.84746 11.4931 2.85812 11.7011 2.86879 11.7438C2.96479 12.1278 3.14079 12.4531 3.39679 12.7198C3.65279 12.9864 3.96746 13.1678 4.34079 13.2638L4.51679 13.3118H11.8128L12.0048 13.2638C12.3888 13.1571 12.7088 12.9651 12.9648 12.6878C13.1888 12.4424 13.3435 12.1544 13.4288 11.8238L13.4768 11.6478V6.57576C13.4768 5.43443 13.4741 4.75976 13.4688 4.55176C13.4635 4.34376 13.4448 4.19176 13.4128 4.09576L13.3968 4.04776C13.3008 3.75976 13.1408 3.50109 12.9168 3.27176C12.6928 3.04243 12.4368 2.87976 12.1488 2.78376L12.0848 2.76776C11.9995 2.73576 11.9035 2.71443 11.7968 2.70376C11.6261 2.69309 11.2901 2.68243 10.7888 2.67176H8.22879C7.07679 2.67176 5.88212 2.67709 4.64479 2.68776H4.54879ZM4.83679 5.34376C4.83679 5.08776 4.92746 4.90109 5.10879 4.78376C5.29012 4.66643 5.48746 4.64243 5.70079 4.71176C5.91412 4.78109 6.05812 4.92243 6.13279 5.13576C6.18612 5.32776 6.17279 5.49576 6.09279 5.63976C6.01279 5.78376 5.89279 5.88776 5.73279 5.95176C5.57279 6.01576 5.41279 6.02109 5.25279 5.96776C5.09279 5.91443 4.97546 5.80243 4.90079 5.63176C4.86879 5.57843 4.85012 5.53843 4.84479 5.51176C4.83946 5.4851 4.83679 5.42909 4.83679 5.34376ZM4.83679 7.16776C4.92212 6.98643 5.01279 6.86376 5.10879 6.79976C5.25812 6.67176 5.45546 6.63976 5.70079 6.70376C5.79679 6.73576 5.88479 6.79176 5.96479 6.87176C6.04479 6.95176 6.10079 7.03976 6.13279 7.13576C6.14346 7.17843 6.15412 7.28509 6.16479 7.45576V10.5438C6.15412 10.7144 6.14346 10.8211 6.13279 10.8638C6.01546 11.1731 5.79146 11.3278 5.46079 11.3278C5.32212 11.3278 5.20479 11.2904 5.10879 11.2158C5.05546 11.1624 4.96479 11.0398 4.83679 10.8478V7.16776ZM7.94079 6.70376C7.71679 6.77843 7.57279 6.93843 7.50879 7.18376C7.49812 7.25843 7.49279 7.86376 7.49279 8.99976C7.49279 10.1358 7.50079 10.7438 7.51679 10.8238C7.53279 10.9038 7.57279 10.9864 7.63679 11.0718C7.77546 11.2424 7.95146 11.3278 8.16479 11.3278C8.33546 11.3278 8.48479 11.2691 8.61279 11.1518C8.68746 11.0878 8.73546 11.0291 8.75679 10.9758C8.79946 10.8904 8.82346 10.7944 8.82879 10.6878C8.83412 10.5811 8.83679 10.2344 8.83679 9.64776V8.68776C8.84746 8.58109 8.85812 8.50643 8.86879 8.46376C8.92212 8.29309 9.02612 8.16776 9.18079 8.08776C9.33546 8.00776 9.49812 7.98909 9.66879 8.03176C9.83946 8.07443 9.97279 8.17043 10.0688 8.31976C10.1221 8.40509 10.1515 8.50376 10.1568 8.61576C10.1621 8.72776 10.1648 9.08243 10.1648 9.67976V10.6238C10.1755 10.7411 10.1861 10.8211 10.1968 10.8638C10.3141 11.1731 10.5381 11.3278 10.8688 11.3278C11.0075 11.3278 11.1195 11.2958 11.2048 11.2318C11.2581 11.1784 11.3541 11.0504 11.4928 10.8478V9.66376C11.4928 8.93843 11.4821 8.49043 11.4608 8.31976C11.3968 7.94643 11.2315 7.60776 10.9648 7.30376C10.6981 6.99976 10.3675 6.80509 9.97279 6.71976C9.54612 6.61309 9.09812 6.66109 8.62879 6.86376C8.60746 6.83176 8.57012 6.79976 8.51679 6.76776C8.42079 6.70376 8.31412 6.67176 8.19679 6.67176C8.11146 6.67176 8.02612 6.68243 7.94079 6.70376Z"
+                    fill="white" />
+            </svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                <path
+                    d="M5.20466 2.01589C5.20466 2.01589 5.21533 2.01589 5.23666 2.01589C6.22866 2.00522 7.226 1.99989 8.22866 1.99989H10.4047C10.842 1.99989 11.1353 2.01055 11.2847 2.03189C11.3913 2.03189 11.5033 2.05322 11.6207 2.09589L11.7007 2.11189C12.266 2.26122 12.762 2.54922 13.1887 2.97589C13.6153 3.40255 13.9033 3.90389 14.0527 4.47989L14.0687 4.52789C14.1113 4.67722 14.1353 4.85055 14.1407 5.04789C14.146 5.24522 14.1487 5.86122 14.1487 6.89589V10.2079C14.1487 10.6559 14.1433 10.9546 14.1327 11.1039C14.122 11.2106 14.1007 11.3226 14.0687 11.4399L14.0527 11.5039C13.9033 12.0906 13.618 12.5972 13.1967 13.0239C12.7753 13.4506 12.2767 13.7386 11.7007 13.8879L11.6367 13.9039C11.4873 13.9466 11.314 13.9706 11.1167 13.9759C10.9193 13.9812 10.3033 13.9839 9.26866 13.9839H7.06066C6.026 13.9839 5.41 13.9812 5.21266 13.9759C5.01533 13.9706 4.842 13.9466 4.69266 13.9039L4.64466 13.8879C4.06866 13.7386 3.56733 13.4506 3.14066 13.0239C2.714 12.5972 2.426 12.0959 2.27666 11.5199L2.26066 11.4719C2.218 11.3226 2.194 11.1492 2.18866 10.9519C2.18333 10.7546 2.18066 10.1386 2.18066 9.10389V6.89589C2.18066 5.86122 2.18333 5.24522 2.18866 5.04789C2.194 4.85055 2.218 4.67722 2.26066 4.52789L2.27666 4.46389C2.426 3.90922 2.69266 3.42922 3.07666 3.02389C3.40733 2.69322 3.79133 2.43722 4.22866 2.25589C4.59133 2.09589 4.91666 2.01589 5.20466 2.01589ZM5.14066 3.37589C4.778 3.42922 4.458 3.57589 4.18066 3.81589C3.90333 4.05589 3.71133 4.35189 3.60466 4.70389L3.58866 4.75189C3.55666 4.83722 3.54066 4.93322 3.54066 5.03989C3.51933 5.17855 3.50866 5.45589 3.50866 5.87189V10.1279C3.50866 10.5439 3.51933 10.8212 3.54066 10.9599C3.54066 11.0666 3.55666 11.1626 3.58866 11.2479L3.60466 11.2959C3.66866 11.5199 3.77533 11.7226 3.92466 11.9039C4.17 12.2239 4.48466 12.4426 4.86866 12.5599L4.91666 12.5759C5.002 12.6079 5.098 12.6239 5.20466 12.6239C5.34333 12.6452 5.62066 12.6559 6.03666 12.6559H10.2927C10.7087 12.6559 10.986 12.6452 11.1247 12.6239C11.2313 12.6239 11.3273 12.6079 11.4127 12.5759L11.4607 12.5599C11.6847 12.4852 11.8927 12.3732 12.0847 12.2239C12.3833 11.9892 12.5967 11.6799 12.7247 11.2959L12.7407 11.2479C12.7727 11.1626 12.7887 11.0666 12.7887 10.9599C12.81 10.8212 12.8207 10.5439 12.8207 10.1279V5.87189C12.8207 5.45589 12.81 5.17855 12.7887 5.03989C12.7887 4.93322 12.7727 4.83722 12.7407 4.75189L12.7247 4.70389C12.6607 4.47989 12.554 4.27722 12.4047 4.09589C12.1593 3.77589 11.8447 3.55722 11.4607 3.43989L11.4127 3.42389C11.3273 3.39189 11.2313 3.37589 11.1247 3.37589C10.986 3.35455 10.7033 3.34389 10.2767 3.34389H8.14866C6.29266 3.34389 5.29 3.35455 5.14066 3.37589ZM10.5007 5.03989C10.4793 4.83722 10.538 4.66922 10.6767 4.53589C10.8153 4.40255 10.986 4.33589 11.1887 4.33589C11.2953 4.33589 11.402 4.36255 11.5087 4.41589C11.7113 4.53322 11.8127 4.73055 11.8127 5.00789C11.8127 5.23189 11.7487 5.39989 11.6207 5.51189C11.4927 5.62389 11.3407 5.67455 11.1647 5.66389C10.9887 5.65322 10.834 5.59189 10.7007 5.47989C10.5673 5.36789 10.5007 5.22122 10.5007 5.03989ZM5.50866 7.79189C5.57266 7.08789 5.834 6.51722 6.29266 6.07989C6.71933 5.67455 7.23133 5.43722 7.82866 5.36789C8.426 5.29855 8.98066 5.40789 9.49266 5.69589C10.0473 6.00522 10.4367 6.46389 10.6607 7.07189C10.8633 7.60522 10.89 8.14389 10.7407 8.68789C10.6127 9.17855 10.354 9.60255 9.96466 9.95989C9.57533 10.3172 9.12466 10.5386 8.61266 10.6239C8.06866 10.7199 7.53533 10.6452 7.01266 10.3999C6.554 10.1866 6.18066 9.85055 5.89266 9.39189C5.58333 8.89055 5.45533 8.35722 5.50866 7.79189ZM7.94066 6.68789C7.706 6.73055 7.49266 6.83455 7.30066 6.99989C7.10866 7.16522 6.97 7.37055 6.88466 7.61589C6.86333 7.67989 6.85266 7.76522 6.85266 7.87189V7.99989C6.85266 8.29855 6.92733 8.55455 7.07666 8.76789C7.21533 8.95989 7.39133 9.10389 7.60466 9.19989C7.79666 9.28522 7.98333 9.32789 8.16466 9.32789C8.538 9.32789 8.85266 9.19722 9.10866 8.93589C9.36466 8.67455 9.49266 8.36255 9.49266 7.99989C9.49266 7.74389 9.42866 7.51455 9.30066 7.31189C9.17266 7.10922 9.01 6.95189 8.81266 6.83989C8.61533 6.72789 8.41533 6.67189 8.21266 6.67189L7.94066 6.68789Z"
+                    fill="white" />
+            </svg>
+
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <!-- Col 3 — Liens -->
+    <div class="footer-links-col">
+      <p class="footer-links-title">Liens Rapides</p>
+      <nav class="footer-links">
+        <a href="#biographie">Biographie</a>
+        <a href="#">Initiatives</a>
+        <a href="#">Discours</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ══════════════════ BOTTOM BAR ══════════════════ -->
+<div class="footer-bottom">
+  <p>Copyright © 2026 S.A.BAKARI. Tous droits réservés.</p>
+  <div class="footer-bottom-links">
+    <a href="#">Politique de Confidentialité</a>
+    <a href="#">Conditions d'Utilisation</a>
+  </div>
+</div>
+
+<script>
+  const burger   = document.getElementById('burger');
+  const menu     = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('close-btn');
+
+  function openMenu()  { menu.classList.add('open');    document.body.style.overflow = 'hidden'; }
+  function closeMenu() { menu.classList.remove('open'); document.body.style.overflow = '';       }
+
+  burger.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+
+  // Close on Escape
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+</script>
+
+</body>
+</html>

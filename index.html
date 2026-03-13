@@ -186,6 +186,9 @@
       justify-content: space-between;
       padding: clamp(32px, 5vw, 60px) 0 clamp(24px, 4vw, 48px);
       gap: 32px;
+
+       padding-top: clamp(90px, 12vw, 60px);
+
     }
 
     .hero-text {
@@ -224,7 +227,11 @@
       max-width: 420px; margin-bottom: 32px;
     }
 
-    .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+      .hero-buttons {
+          display: flex;
+          gap: 12px;
+          flex-wrap: nowrap; /* ← était wrap, empêche le retour à la ligne */
+        }
 
     .btn-primary {
       background: var(--gold-alt); color: var(--navy);
@@ -757,13 +764,38 @@
        RESPONSIVE BREAKPOINTS
     ═══════════════════════════════════ */
 
+
+    @media (max-width: 400px) {
+  .hero-buttons { flex-wrap: wrap; } /* ← uniquement sur très petits écrans */
+  .btn-primary, .btn-outline { width: 100%; justify-content: center; font-size: small; }
+}
     /* — Tablet (≤ 1100px) — */
     @media (max-width: 1100px) {
       .exp-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
+    
+.hero-portrait-mobile {
+  display: none;
+}
+ 
     /* — Tablet (≤ 900px) — */
     @media (max-width: 900px) {
+       .hero-portrait-mobile {
+    display: block;
+    width: clamp(200px, 60vw, 350px);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 16px auto;
+    border: 2px solid rgba(212, 175, 55, 0.4);
+  }
+  .hero-portrait-mobile img {
+    width: 100%;
+    height: clamp(200px, 80vw, 400px);
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
       /* Nav */
       .nav-links, .nav-cta { display: none; }
       .burger { display: flex; }
@@ -772,16 +804,27 @@
       .hero-content {
         flex-direction: column; align-items: flex-start;
         padding-bottom: clamp(120px, 18vw, 200px);
+         padding-top: 100px;
       }
       .hero-text { margin-left: 0; max-width: 100%; }
       .hero-photo-wrapper { display: none; }
       /* Show photo as BG overlay, adjust mask */
       .hero-bg-photo {
-        width: 70%;
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.25) 30%, rgba(0,0,0,.6) 60%);
-        mask-image:         linear-gradient(to right, transparent 0%, rgba(0,0,0,.25) 30%, rgba(0,0,0,.6) 60%);
-      }
+    background-position: 40% top;  
+    background-size: cover;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 
+
+ .hero-bg-photo::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(6, 22, 45, 0.88) 0%,
+      rgba(6, 22, 45, 0.80) 50%,
+      rgba(6, 22, 45, 0.92) 100%
+    );
+  }
       /* Stats */
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
       .stat-item:nth-child(2) { border-right: none; }
@@ -841,6 +884,9 @@
         padding: 24px clamp(16px, 4vw, 40px);
         min-height: auto;
       }
+       .hero-bg-photo {
+    background-position: 45% top; /* ← affinez selon le cadrage souhaité */
+  }
     }
 
     /* — Large screens (≥ 1400px) — */
@@ -912,12 +958,15 @@
           <div class="bar"></div>
           <span>Ministre des Affaires Étrangères · Entrepreneur · Banquier</span>
         </div>
+        <div class="hero-portrait-mobile">
+          <img src="https://i.ibb.co/TqW3sWWx/a60f6b42-92e5-456e-9bea-be419e5b4375.png" alt="S.A. Bakari" />
+        </div>
         <p class="hero-desc">
           Une diplomatie de résultats dirigée par Olushegun Adjadi Bakari pour transformer chaque accord en levier de croissance économique.
         </p>
         <div class="hero-buttons">
-          <a href="#parcours" class="btn-primary">Découvrir la vision <span>↗</span></a>
-          <a href="#contact" class="btn-outline">Me Contacter <span>↗</span></a>
+          <a href="#parcours" class="btn-primary">Découvrir<span>↗</span></a>
+          <a href="#contact" class="btn-outline">Contacter <span>↗</span></a>
         </div>
       </div>
 
@@ -989,7 +1038,7 @@
           </div>
           <p class="quote-text">« Le Bénin a fait le choix d'une diplomatie décomplexée, prête à construire des ponts et à contribuer activement à la prospérité de toute la sous-région. »</p>
         </div>
-        <a href="#parcours" class="btn-primary">Découvrir la vision <span>↗</span></a>
+        <a href="#parcours" class="btn-primary">Découvrir<span>↗</span></a>
       </div>
     </div>
   </div>
@@ -1404,6 +1453,36 @@
 
   // Close on Escape
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  // ── Active link highlight ──
+    const navLinkEls = document.querySelectorAll('.nav-links a');
+
+    // Retirer "active" de tous les liens au clic, puis l'ajouter au cliqué
+    navLinkEls.forEach(link => {
+      link.addEventListener('click', () => {
+        navLinkEls.forEach(a => a.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    // Highlight basé sur le scroll (IntersectionObserver)
+    const trackIds = ['accueil', 'biographie', 'parcours', 'expertise', 'publications', 'contact'];
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinkEls.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id);
+          });
+        }
+      });
+    }, {
+      rootMargin: '-10% 0px -85% 0px', /* ← zone de détection : 10% depuis le haut */
+      threshold: 0
+    });
+
+    trackIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) io.observe(el);
+    });
 </script>
 
 </body>
